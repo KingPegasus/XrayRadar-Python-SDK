@@ -13,7 +13,7 @@ Usage:
   python examples/console_breadcrumb_example.py
 
 Set environment variables or edit below:
-  XRAYRADAR_DSN=https://your-server.com/your_project_id
+  XRAYRADAR_DSN=https://xrayradar.com/your_project_id
   XRAYRADAR_AUTH_TOKEN=your_token
 """
 

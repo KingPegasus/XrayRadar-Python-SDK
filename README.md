@@ -2,8 +2,8 @@
 
 [![PyPI version](https://img.shields.io/pypi/v/xrayradar?style=flat-square)](https://pypi.org/project/xrayradar/)
 ![Python](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue?style=flat-square)
-[![CI](https://img.shields.io/github/actions/workflow/status/KingPegasus/XrayRadar/ci.yml?label=CI&style=flat-square)](https://github.com/KingPegasus/XrayRadar/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=flat-square)](https://kingpegasus.github.io/XrayRadar/)
+[![CI](https://img.shields.io/github/actions/workflow/status/KingPegasus/XrayRadar-Python-SDK/ci.yml?label=CI&style=flat-square)](https://github.com/KingPegasus/XrayRadar-Python-SDK/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen?style=flat-square)](https://kingpegasus.github.io/XrayRadar-Python-SDK/)
 
 **Official Python SDK for XrayRadar** — Capture, track, and monitor errors in your Python applications with ease.
 
@@ -193,16 +193,23 @@ Add the middleware to your Django settings:
 
 ```python
 # settings.py
+# Set XRAYRADAR_DSN and XRAYRADAR_AUTH_TOKEN in env or here
+import xrayradar
+from xrayradar.integrations.django import init_django_integration
+
+XRAYRADAR_DSN = "https://xrayradar.com/your_project_id"
+XRAYRADAR_AUTH_TOKEN = "your_token_here"
+
+client = xrayradar.init(
+    dsn=XRAYRADAR_DSN,
+    auth_token=XRAYRADAR_AUTH_TOKEN
+)
+init_django_integration(client)
+
 MIDDLEWARE = [
     'xrayradar.integrations.django.ErrorTrackerMiddleware',
     # ... other middleware
 ]
-
-# Optional: Configure via Django settings
-# Replace with your actual XrayRadar DSN from your project settings
-XRAYRADAR_DSN = "https://xrayradar.com/your_project_id"
-XRAYRADAR_ENVIRONMENT = "production"
-XRAYRADAR_RELEASE = "1.0.0"
 ```
 
 ### Graphene (GraphQL)
@@ -576,7 +583,7 @@ The SDK supports multiple transport implementations:
 
 ```bash
 # Clone the repository
-git clone https://github.com/KingPegasus/XrayRadar.git
+git clone https://github.com/KingPegasus/XrayRadar-Python-SDK.git
 cd xrayradar
 
 # Install in development mode
@@ -609,7 +616,7 @@ pytest --cov=xrayradar --cov-report=html
 pytest tests/test_client.py
 ```
 
-> **Note**: Test coverage reports are automatically generated in CI and deployed to [GitHub Pages](https://kingpegasus.github.io/XrayRadar/). To enable this:
+> **Note**: Test coverage reports are automatically generated in CI and deployed to [GitHub Pages](https://kingpegasus.github.io/XrayRadar-Python-SDK/). To enable this:
 > 1. Go to your repository **Settings** → **Pages**
 > 2. Under **Source**, select **GitHub Actions**
 > 3. Save the settings
