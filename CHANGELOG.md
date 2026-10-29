@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.5.0] - 2026-10-29
 
+### Added
+- Support for Python 3.14 and 3.15 (classifiers, CI matrix, README badge).
+
 ### Removed
 - Dropped support for Python 3.8 and 3.9; the minimum supported version is now Python 3.10.
 
