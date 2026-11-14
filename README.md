@@ -646,3 +646,7 @@ MIT License - see LICENSE file for details.
 ## Support
 
 For bug reports and feature requests, please use the GitHub issue tracker.
+
+---
+
+XrayRadar is built and maintained by [Rhyme Solutions](https://rhymesolutions.com).
